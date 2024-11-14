@@ -1,0 +1,204 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: #0d0d0d;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #000000;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+}
+
+.navbar .logo img {
+    height: 60px;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links li {
+    margin-left: 15px;
+}
+
+.navbar-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #ffc107;
+}
+
+/* Section principale */
+.sujet-section {
+    padding: 80px 20px 50px 20px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.sujet-section h2 {
+    font-size: 2.5em;
+    color: #ffc107;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    animation: slideUp 1s ease-out forwards;
+}
+
+.sujet-section p {
+    font-size: 1.2em;
+    color: #e0e0e0;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s 0.3s ease-out forwards;
+}
+
+/* Les modèles emblématiques */
+.sujet-content h3 {
+    font-size: 2em;
+    color: #ffc107;
+    margin-bottom: 20px;
+}
+
+.model {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.model h4 {
+    font-size: 1.8em;
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+/* Conteneur d'images avec flèches */
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px; /* Taille maximale de l'image */
+    text-align: center;
+}
+
+.model-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0; /* On cache les images au départ */
+    transition: opacity 1s ease-in-out; /* Transition d'opacité */
+}
+
+/* Afficher l'image sélectionnée */
+#image1:checked ~ .image-slide .model-image:nth-child(1),
+#image2:checked ~ .image-slide .model-image:nth-child(2),
+#image3:checked ~ .image-slide .model-image:nth-child(3) {
+    opacity: 1;
+}
+
+/* Cache les images non sélectionnées */
+.image-slide .model-image {
+    display: none;
+}
+
+#image1:checked ~ .image-slide .model-image:nth-child(1),
+#image2:checked ~ .image-slide .model-image:nth-child(2),
+#image3:checked ~ .image-slide .model-image:nth-child(3) {
+    display: block;
+}
+
+/* Position des flèches */
+label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+label:hover {
+    opacity: 1;
+}
+
+label.prev {
+    left: 10px;
+}
+
+label.next {
+    right: 10px;
+}
+
+/* Animation pour une transition fluide entre les images */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Animations des sections */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
