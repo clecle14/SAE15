@@ -7,16 +7,15 @@
 
 /* Style global */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #ffffff;
-    background-color: #0d0d0d;
-    overflow-x: hidden;
+    background-color: #0d0d0d; /* Fond sombre */
 }
 
 /* Navbar */
 .navbar {
-    background-color: #000000;
+    background-color: #000000; /* Fond noir */
     padding: 15px 30px;
     position: fixed;
     width: 100%;
@@ -30,13 +29,13 @@ body {
 
 .navbar-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Aligne le logo à gauche */
     align-items: center;
     width: 80%;
 }
 
 .navbar .logo img {
-    height: 60px;
+    height: 60px; /* Taille du logo */
 }
 
 .navbar-links {
@@ -50,7 +49,7 @@ body {
 }
 
 .navbar-links a {
-    color: #ffffff;
+    color: #ffffff; /* Texte blanc */
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -60,107 +59,93 @@ body {
 }
 
 .navbar-links a:hover {
-    color: #ffc107;
+    color: #ffc107; /* Couleur or lors du survol */
 }
+
 
 /* Section principale */
 .sujet-section {
-    padding: 80px 20px 50px 20px;
+    padding: 120px 20px 50px; /* Espace au-dessus pour compenser la navbar */
     text-align: center;
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
 }
 
 .sujet-section h2 {
     font-size: 2.5em;
-    color: #ffc107;
+    color: #ffc107; /* Couleur or */
     margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    animation: slideUp 1s ease-out forwards;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .sujet-section p {
     font-size: 1.2em;
     color: #e0e0e0;
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeIn 1s 0.3s ease-out forwards;
+    max-width: 800px;
+    margin: 0 auto 50px;
 }
 
-/* Les modèles emblématiques */
+/* Section des modèles */
 .sujet-content h3 {
     font-size: 2em;
     color: #ffc107;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
 .model {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-align: center;
+    color: #e0e0e0;
 }
 
 .model h4 {
     font-size: 1.8em;
     color: #ffc107;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Conteneur d'images avec flèches */
+.model p {
+    font-size: 1em;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Galerie d'images avec slider */
 .image-container {
     position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 400px; /* Taille maximale de l'image */
-    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+}
+
+.image-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Chaque image occupe 100% de la largeur du conteneur */
 }
 
 .model-image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    opacity: 0; /* On cache les images au départ */
-    transition: opacity 1s ease-in-out; /* Transition d'opacité */
+    object-fit: cover;
 }
 
-/* Afficher l'image sélectionnée */
-#image1:checked ~ .image-slide .model-image:nth-child(1),
-#image2:checked ~ .image-slide .model-image:nth-child(2),
-#image3:checked ~ .image-slide .model-image:nth-child(3) {
-    opacity: 1;
-}
-
-/* Cache les images non sélectionnées */
-.image-slide .model-image {
-    display: none;
-}
-
-#image1:checked ~ .image-slide .model-image:nth-child(1),
-#image2:checked ~ .image-slide .model-image:nth-child(2),
-#image3:checked ~ .image-slide .model-image:nth-child(3) {
-    display: block;
-}
-
-/* Position des flèches */
-label {
+/* Navigation du slider */
+label.prev,
+label.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
     font-size: 2em;
-    padding: 10px;
+    color: #ffffff;
     cursor: pointer;
-    z-index: 10;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-label:hover {
-    opacity: 1;
+    z-index: 5;
+    user-select: none;
 }
 
 label.prev {
@@ -171,34 +156,101 @@ label.next {
     right: 10px;
 }
 
-/* Animation pour une transition fluide entre les images */
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+input[type="radio"] {
+    display: none;
 }
 
-/* Animations des sections */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+input#miura1:checked ~ .image-slide {
+    transform: translateX(0%);
 }
 
-@keyframes slideUp {
-    0% {
-        transform: translateY(20px);
+input#miura2:checked ~ .image-slide {
+    transform: translateX(-33.33%); /* Déplace la galerie à la deuxième image */
+}
+
+input#miura3:checked ~ .image-slide {
+    transform: translateX(-66.66%); /* Déplace la galerie à la troisième image */
+}
+
+input#murcielago1:checked ~ .image-slide {
+    transform: translateX(0%);
+}
+
+input#murcielago2:checked ~ .image-slide {
+    transform: translateX(-33.33%);
+}
+
+input#murcielago3:checked ~ .image-slide {
+    transform: translateX(-66.66%);
+}
+
+input#terzo1:checked ~ .image-slide {
+    transform: translateX(0%);
+}
+
+input#terzo2:checked ~ .image-slide {
+    transform: translateX(-33.33%);
+}
+
+input#terzo3:checked ~ .image-slide {
+    transform: translateX(-66.66%);
+}
+
+/* Amélioration des flèches de navigation */
+input#miura1:checked ~ label.prev,
+input#miura3:checked ~ label.next {
+    visibility: hidden;
+}
+
+input#miura2:checked ~ label.prev,
+input#miura2:checked ~ label.next {
+    visibility: visible;
+}
+
+input#murcielago1:checked ~ label.prev,
+input#murcielago3:checked ~ label.next {
+    visibility: hidden;
+}
+
+input#murcielago2:checked ~ label.prev,
+input#murcielago2:checked ~ label.next {
+    visibility: visible;
+}
+
+input#terzo1:checked ~ label.prev,
+input#terzo3:checked ~ label.next {
+    visibility: hidden;
+}
+
+input#terzo2:checked ~ label.prev,
+input#terzo2:checked ~ label.next {
+    visibility: visible;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sujet-section h2 {
+        font-size: 2em;
     }
-    100% {
-        transform: translateY(0);
+
+    .sujet-section p {
+        font-size: 1em;
+    }
+
+    .image-container {
+        width: 90%;
+    }
+
+    label.prev, label.next {
+        font-size: 1.5em;
     }
 }
