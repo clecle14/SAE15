@@ -1,21 +1,93 @@
-/* Reset de base */
-* {
+/* Global Styles */
+html, * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-/* Style global */
+html, body {
+    height: 100%; /* Prend toute la hauteur de la fenêtre */
+    overflow: hidden; /* Empêche le défilement vertical de la page entière */
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #ffffff;
-    background-color: #0d0d0d; /* Fond sombre */
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
 }
 
-/* Navbar */
+/* Loader */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    animation: fadeOut 2.5s forwards;
+    animation-delay: 3s;
+}
+
+#loader h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+#loader h1 span {
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+#loader h1 span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+#loader h1 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#loader h1 span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Animation de rebond des points (chargement) */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+}
+
+/* Animation de disparition du loader */
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+/* Navigation */
 .navbar {
-    background-color: #000000; /* Fond noir */
+    background-color: #000000;
     padding: 15px 30px;
     position: fixed;
     width: 100%;
@@ -29,13 +101,13 @@ body {
 
 .navbar-container {
     display: flex;
-    justify-content: flex-start; /* Aligne le logo à gauche */
+    justify-content: flex-start;
     align-items: center;
     width: 80%;
 }
 
 .navbar .logo img {
-    height: 60px; /* Taille du logo */
+    height: 60px;
 }
 
 .navbar-links {
@@ -49,7 +121,7 @@ body {
 }
 
 .navbar-links a {
-    color: #ffffff; /* Texte blanc */
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -59,198 +131,166 @@ body {
 }
 
 .navbar-links a:hover {
-    color: #ffc107; /* Couleur or lors du survol */
+    color: #ffc107;
 }
-
 
 /* Section principale */
 .sujet-section {
-    padding: 120px 20px 50px; /* Espace au-dessus pour compenser la navbar */
+    max-width: 1200px;
+    margin-top: 40px;
     text-align: center;
+    max-height: 80vh; /* Limite la hauteur de la section */
+    overflow-y: auto; /* Permet le défilement uniquement dans cette section */
 }
 
 .sujet-section h2 {
-    font-size: 2.5em;
-    color: #ffc107; /* Couleur or */
+    color: white;
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .sujet-section p {
-    font-size: 1.2em;
-    color: #e0e0e0;
-    max-width: 800px;
-    margin: 0 auto 50px;
+    color: #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
 }
 
-/* Section des modèles */
-.sujet-content h3 {
-    font-size: 2em;
-    color: #ffc107;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-}
-
+/* Modèle voiture */
 .model {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: center;
-    color: #e0e0e0;
 }
 
-.model h4 {
-    font-size: 1.8em;
-    color: #ffc107;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+.model h3 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .model p {
-    font-size: 1em;
-    max-width: 600px;
+    color: #ddd;
+    font-size: 1.1rem;
+    max-width: 900px;
     margin: 0 auto;
-    color: #e0e0e0;
-    line-height: 1.6;
 }
 
-/* Galerie d'images avec slider */
-.image-container {
+/* Slider Container */
+i {
     position: relative;
-    width: 80%;
-    max-width: 600px;
-    margin: 20px auto;
+    display: block;
+    width: 500px;
+    height: 300px;
     overflow: hidden;
-    border: 2px solid #ffc107;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
 }
 
-.image-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 300%; /* Chaque image occupe 100% de la largeur du conteneur */
-}
-
-.model-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Navigation du slider */
-label.prev,
-label.next {
+/* Navigation Arrows (Prev/Next) */
+i:before, i:after {
+    content: '⥪'; /* Left Arrow */
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    font-size: 2em;
-    color: #ffffff;
-    cursor: pointer;
-    z-index: 5;
-    user-select: none;
+    left: 1rem;
+    z-index: 2;
+    width: 2rem;
+    height: 2rem;
+    background: dodgerblue;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 }
 
-label.prev {
-    left: 10px;
+i:after {
+    content: '⥭'; /* Right Arrow */
+    left: auto;
+    right: 1rem;
 }
 
-label.next {
-    right: 10px;
+/* Styling for the Images (Slider items) */
+input {
+    appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translateX(100%);
+    transition: transform ease-in-out 400ms;
+    z-index: 1;
 }
 
-input[type="radio"] {
+input:focus {
+    outline: none;
+}
+
+input:after {
+    content: attr(title);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* Radio Button Styling for Navigation */
+input:not(checked):before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    top: 50%;
+    left: calc(-100% + 1rem);
+}
+
+input:checked:before {
+    display: none;
+    left: 1rem;
+}
+
+/* When the input is checked, change the position of the image */
+input:checked {
+    transform: translateX(0);
+    pointer-events: none;
+    z-index: 0;
+    box-shadow: -5px 10px 20px -15px rgba(0, 0, 0, 1);
+}
+
+/* Style for the arrows when an image is checked */
+input:checked + input:before {
+    left: -3rem;
+}
+
+/* Hide the previous arrow once the image has been checked */
+input:checked + input ~ input:before {
     display: none;
 }
 
-input#miura1:checked ~ .image-slide {
-    transform: translateX(0%);
+/* Making sure only the checked input moves */
+input:checked ~ input {
+    transform: translateX(100%);
 }
 
-input#miura2:checked ~ .image-slide {
-    transform: translateX(-33.33%); /* Déplace la galerie à la deuxième image */
-}
-
-input#miura3:checked ~ .image-slide {
-    transform: translateX(-66.66%); /* Déplace la galerie à la troisième image */
-}
-
-input#murcielago1:checked ~ .image-slide {
-    transform: translateX(0%);
-}
-
-input#murcielago2:checked ~ .image-slide {
-    transform: translateX(-33.33%);
-}
-
-input#murcielago3:checked ~ .image-slide {
-    transform: translateX(-66.66%);
-}
-
-input#terzo1:checked ~ .image-slide {
-    transform: translateX(0%);
-}
-
-input#terzo2:checked ~ .image-slide {
-    transform: translateX(-33.33%);
-}
-
-input#terzo3:checked ~ .image-slide {
-    transform: translateX(-66.66%);
-}
-
-/* Amélioration des flèches de navigation */
-input#miura1:checked ~ label.prev,
-input#miura3:checked ~ label.next {
-    visibility: hidden;
-}
-
-input#miura2:checked ~ label.prev,
-input#miura2:checked ~ label.next {
-    visibility: visible;
-}
-
-input#murcielago1:checked ~ label.prev,
-input#murcielago3:checked ~ label.next {
-    visibility: hidden;
-}
-
-input#murcielago2:checked ~ label.prev,
-input#murcielago2:checked ~ label.next {
-    visibility: visible;
-}
-
-input#terzo1:checked ~ label.prev,
-input#terzo3:checked ~ label.next {
-    visibility: hidden;
-}
-
-input#terzo2:checked ~ label.prev,
-input#terzo2:checked ~ label.next {
-    visibility: visible;
+input:checked ~ input:checked ~ input {
+    transform: translateX(200%);
 }
 
 /* Footer */
 footer {
-    padding: 20px;
     text-align: center;
-    background-color: #1a1a1a;
-    color: #e0e0e0;
+    color: white;
     margin-top: 50px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .sujet-section h2 {
-        font-size: 2em;
-    }
-
-    .sujet-section p {
-        font-size: 1em;
-    }
-
-    .image-container {
-        width: 90%;
-    }
-
-    label.prev, label.next {
-        font-size: 1.5em;
-    }
 }

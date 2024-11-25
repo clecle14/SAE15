@@ -6,7 +6,11 @@
     <title>Lamborghini - Sports Cars</title>
     <link rel="stylesheet" href="style-lambo.css">
 </head>
+
 <body>
+    <div id="loader">
+      <h1>Chargement <span>.</span><span>.</span><span>.</span></h1>
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -15,91 +19,49 @@
                 <img src="image/Lamborghini-Logo.png" alt="Logo Lamborghini" />
             </a>
             <ul class="navbar-links">
-                <li><a href="index.html">accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li><a href="lamborghini.html">Sports Cars</a></li>
-                <li><a href="">à propos</a></li>
+                <li><a href="#">À propos</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Section principale du sujet -->
+    <!-- Section principale -->
     <section class="sujet-section">
         <h2>Les Voitures de Sport Lamborghini</h2>
         <p>Lamborghini, un nom synonyme de performance et de luxe, a marqué l’histoire de l’automobile avec ses voitures de sport audacieuses et futuristes. Découvrez l'innovation et l'élégance de ces bolides mythiques.</p>
         
-        <!-- Les modèles emblématiques -->
-        <div class="sujet-content">
-            <h3>Les modèles emblématiques de Lamborghini</h3>
-            <p>Depuis sa création en 1963, Lamborghini a lancé une série de modèles iconiques, chacun redéfinissant ce que signifie une supercar.</p>
+        <!-- Modèle Miura -->
+        <div class="model">
+            <h3>Miura (1966)</h3>
+            <i>
+                <input checked type="radio" name="miura" style="background-image: url('image/miura.jpg');" >
+                <input type="radio" name="miura" style="background-image: url('image/miura2.jpg');" >
+                <input type="radio" name="miura" style="background-image: url('image/miura3.jpg');" >
+            </i>
+            <p>La Lamborghini Miura est souvent considérée comme la première supercar moderne. Elle a établi un nouveau standard en matière de performance et de design, avec un moteur V12 en position centrale qui a fait d'elle une icône instantanée.</p>
+        </div>
 
-            <!-- Modèle Miura -->
-            <div class="model">
-                <h4>Miura (1966)</h4>
-                <div class="image-container">
-                    <!-- Boutons radio pour le modèle Miura -->
-                    <input type="radio" name="miura" id="miura1" checked />
-                    <input type="radio" name="miura" id="miura2" />
-                    <input type="radio" name="miura" id="miura3" />
+        <!-- Modèle Murciélago -->
+        <div class="model">
+            <h3>Murciélago R-GT</h3>
+            <i>
+                <input checked type="radio" name="murcielago" style="background-image: url('image/mans.jpg');" >
+                <input type="radio" name="murcielago" style="background-image: url('image/mans2.jpg');" >
+                <input type="radio" name="murcielago" style="background-image: url('image/mans3.jpg');" >
+            </i>
+            <p>La Lamborghini Murciélago R-GT, lancée en 2004, a dominé les circuits de course d'endurance, avec son moteur V12 de 6,2 litres développant 580 chevaux, lui permettant d'atteindre une vitesse de pointe de 330 km/h.</p>
+        </div>
 
-                    <!-- Images du modèle Miura -->
-                    <div class="image-slide">
-                        <img class="model-image" src="image/miura.jpg" alt="Lamborghini Miura" />
-                        <img class="model-image" src="image/miura3.jpg" alt="Lamborghini Miura 2" />
-                        <img class="model-image" src="image/miura3.jpg" alt="Lamborghini Miura 3" />
-                    </div>
-
-                    <!-- Flèches de navigation -->
-                    <label for="miura1" class="prev">&#8592;</label>
-                    <label for="miura2" class="next">&#8594;</label>
-                </div>
-                <p>La Lamborghini Miura est souvent considérée comme la première supercar moderne. Elle a établi un nouveau standard en matière de performance et de design, avec un moteur V12 en position centrale qui a fait de lui une icône instantanée.</p>
-            </div>
-
-            <!-- Modèle Murciélago R-GT -->
-            <div class="model">
-                <h4>Murciélago R-GT</h4>
-                <div class="image-container">
-                    <!-- Boutons radio pour le modèle Murciélago -->
-                    <input type="radio" name="murcielago" id="murcielago1" checked />
-                    <input type="radio" name="murcielago" id="murcielago2" />
-                    <input type="radio" name="murcielago" id="murcielago3" />
-
-                    <!-- Images du modèle Murciélago -->
-                    <div class="image-slide">
-                        <img class="model-image" src="image/mans.jpg" alt="Lamborghini Murciélago" />
-                        <img class="model-image" src="image/mans3.jpg" alt="Lamborghini Murciélago 2" />
-                        <img class="model-image" src="image/mans2.jpg" alt="Lamborghini Murciélago 3" />
-                    </div>
-
-                    <!-- Flèches de navigation -->
-                    <label for="murcielago1" class="prev">&#8592;</label>
-                    <label for="murcielago2" class="next">&#8594;</label>
-                </div>
-                <p>La Lamborghini Murciélago R-GT, lancée en 2004, a dominé les circuits de course d'endurance, avec son moteur V12 de 6,2 litres développant 580 chevaux, lui permettant d'atteindre une vitesse de pointe de 330 km/h.</p>
-            </div>
-
-            <!-- Modèle Terzo Millennio -->
-            <div class="model">
-                <h4>Terzo Millennio</h4>
-                <div class="image-container">
-                    <!-- Boutons radio pour le modèle Terzo Millennio -->
-                    <input type="radio" name="terzo" id="terzo1" checked />
-                    <input type="radio" name="terzo" id="terzo2" />
-                    <input type="radio" name="terzo" id="terzo3" />
-
-                    <!-- Images du modèle Terzo Millennio -->
-                    <div class="image-slide">
-                        <img class="model-image" src="image/terz.jpg" alt="Lamborghini Terzo Millennio" />
-                        <img class="model-image" src="image/teR.jpg" alt="Lamborghini Terzo Millennio 2" />
-                        <img class="model-image" src="image/terrrr.jpg" alt="Lamborghini Terzo Millennio 3" />
-                    </div>
-
-                    <!-- Flèches de navigation -->
-                    <label for="terzo1" class="prev">&#8592;</label>
-                    <label for="terzo2" class="next">&#8594;</label>
-                </div>
-                <p>La Lamborghini Terzo Millennio, un concept futuriste présenté en 2017, est propulsée par un moteur électrique innovant, offrant une puissance impressionnante tout en étant respectueuse de l'environnement grâce à ses batteries de nouvelle génération.</p>
-            </div>
+        <!-- Modèle Terzo Millennio -->
+        <div class="model">
+            <h3>Terzo Millennio</h3>
+            <i>
+                <input checked type="radio" name="terzo" style="background-image: url('image/terz.jpg');" >
+                <input type="radio" name="terzo" style="background-image: url('image/terrrr.jpg');" >
+                <input type="radio" name="terzo" style="background-image: url('image/teR.jpg');" >
+            </i>
+            <p>La Lamborghini Terzo Millennio, un concept futuriste présenté en 2017, est propulsée par un moteur électrique innovant, offrant une puissance impressionnante tout en étant respectueuse de l'environnement grâce à ses batteries de nouvelle génération.</p>
         </div>
     </section>
 
@@ -110,5 +72,3 @@
 
 </body>
 </html>
-git config --global user.email
-git config --global user.name
