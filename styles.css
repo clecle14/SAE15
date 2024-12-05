@@ -13,46 +13,70 @@ body {
     background-color: #0d0d0d;
 }
 
-/* Loader */
-#loader {
+/* Fond et centrage */
+.loading-screen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1000;
-    flex-direction: column;
-    opacity: 1;
-    visibility: visible;
-    animation: fadeOut 2.5s forwards;
-    animation-delay: 3s;
+    align-items: center;
+    background-color: black;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    z-index: 9999;
 }
 
-/* Animation cercle rotatif */
-#loader .spinner {
-    width: 80px;
-    height: 80px;
-    border: 8px solid rgba(255, 255, 255, 0.2);
-    border-top: 8px solid #ffc107;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
+/* Animation de fondu */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-/* Texte animé */
-#loader h1 {
-    color: white;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    animation: fadeInText 1s ease-out;
+/* Fond et centrage */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    z-index: 9999;
+    animation: fadeOut 5s ease-in-out forwards;
 }
 
-/* Disparition du loader */
+/* Loader animation */
+.loader {
+    width: 45px;
+    height: 40px;
+    background: linear-gradient(#0000 calc(1*100%/6), #fff 0 calc(3*100%/6), #0000 0),
+                linear-gradient(#0000 calc(2*100%/6), #fff 0 calc(4*100%/6), #0000 0),
+                linear-gradient(#0000 calc(3*100%/6), #fff 0 calc(5*100%/6), #0000 0);
+    background-size: 10px 400%;
+    background-repeat: no-repeat;
+    animation: matrix 1s infinite linear;
+}
+
+/* Animation matrix */
+@keyframes matrix {
+    0% {
+        background-position: 0% 100%, 50% 100%, 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%, 50% 0%, 100% 0%;
+    }
+}
+
+/* Fade-out animation */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -60,29 +84,11 @@ body {
     }
     100% {
         opacity: 0;
-        visibility: hidden;
+        visibility: hidden; /* Cache l'élément après l'animation */
     }
 }
 
-/* Rotation de la roue */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
-/* Apparition progressive du texte */
-@keyframes fadeInText {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
 /* Navbar */
 .navbar {
