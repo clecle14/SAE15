@@ -15,7 +15,6 @@ Ce projet a été développé en utilisant les technologies suivantes :
 
 - **HTML5** : Structure de base du site, incluant la création de pages et la gestion des contenus.
 - **CSS3** : Mise en forme du site, avec des animations et transitions CSS pour améliorer l'interactivité.
-- **JavaScript (facultatif)** : Utilisation pour des animations dynamiques, bien que le site soit principalement basé sur du CSS.
 - **GitHub Pages** : Hébergement du site en ligne via GitHub Pages, permettant un accès facile et gratuit au projet.
 
 ## Installation et utilisation
