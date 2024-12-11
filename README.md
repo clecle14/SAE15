@@ -9,17 +9,6 @@ Ce projet est un site web dédié aux voitures de la marque Lamborghini. Il pré
 - **Navigation fluide** : Un menu de navigation fixe permettant d'accéder facilement aux différentes sections du site.
 - **Responsive design** : Le site est conçu pour être utilisé sur tous les types d'appareils, de l'ordinateur de bureau au smartphone.
 
-## Technologies utilisées
 
-Ce projet a été développé en utilisant les technologies suivantes :
-
-- **HTML5** : Structure de base du site, incluant la création de pages et la gestion des contenus.
-- **CSS3** : Mise en forme du site, avec des animations et transitions CSS pour améliorer l'interactivité.
-- **GitHub Pages** : Hébergement du site en ligne via GitHub Pages, permettant un accès facile et gratuit au projet.
-
-## Installation et utilisation
-
-1. Clonez ce repository sur votre machine locale :
-
-   ```bash
+## Voici le lien du site
    git clone https://github.com/votre-utilisateur/lamborghini-site.git
