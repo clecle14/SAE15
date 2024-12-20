@@ -1,0 +1,329 @@
+/* Styles globaux */
+html, * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Empêche le défilement vertical de la page entière */
+}
+
+body {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    padding-top: 80px; 
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    z-index: 9999;
+}
+
+/* Animation de fondu */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    z-index: 9999;
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+.loader {
+    width: 45px;
+    height: 40px;
+    background: linear-gradient(#0000 calc(1*100%/6), #fff 0 calc(3*100%/6), #0000 0),
+                linear-gradient(#0000 calc(2*100%/6), #fff 0 calc(4*100%/6), #0000 0),
+                linear-gradient(#0000 calc(3*100%/6), #fff 0 calc(5*100%/6), #0000 0);
+    background-size: 10px 400%;
+    background-repeat: no-repeat;
+    animation: matrix 1s infinite linear;
+}
+
+
+@keyframes matrix {
+    0% {
+        background-position: 0% 100%, 50% 100%, 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%, 50% 0%, 100% 0%;
+    }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden; 
+    }
+}
+
+/* Barre de navigation */
+.navbar {
+    background-color: #000000;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+}
+
+.navbar .logo img {
+    height: 60px;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links li {
+    margin-left: 15px;
+}
+
+.navbar-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #ffc107;
+}
+
+/* Section principale */
+.sujet-section {
+    max-width: 1200px;
+    margin-top: 40px;
+    text-align: center;
+    max-height: 80vh; 
+    overflow-y: auto; 
+    padding-top: 80px; 
+}
+
+.sujet-section h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.sujet-section p {
+    color: #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Modèle de voiture */
+.model {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.model h3 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.model p {
+    color: #ddd;
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Conteneur du slider */
+i {
+    position: relative;
+    display: block;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+/* Flèches de navigation (précédent/suivant) */
+i:before, i:after {
+    content: '⥪'; /* Flèche gauche */
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    z-index: 2;
+    width: 2rem;
+    height: 2rem;
+    background: dodgerblue;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+i:after {
+    content: '⥭'; /* Flèche droite */
+    left: auto;
+    right: 1rem;
+}
+
+/* Style des images (éléments du slider) */
+input {
+    appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translateX(100%);
+    transition: transform ease-in-out 400ms;
+    z-index: 1;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:after {
+    content: attr(title);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* Style des boutons radio pour la navigation */
+input:not(checked):before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    top: 50%;
+    left: calc(-100% + 1rem);
+}
+
+input:checked:before {
+    display: none;
+    left: 1rem;
+}
+
+/* Déplacement des images lorsque le bouton est coché */
+input:checked {
+    transform: translateX(0);
+    pointer-events: none;
+    z-index: 0;
+    box-shadow: -5px 10px 20px -15px rgba(0, 0, 0, 1);
+}
+
+/* Style des flèches lorsqu'une image est cochée */
+input:checked + input:before {
+    left: -3rem;
+}
+
+/* Cache la flèche précédente une fois l'image cochée */
+input:checked + input ~ input:before {
+    display: none;
+}
+
+/* S'assure que seul l'input coché bouge */
+input:checked ~ input {
+    transform: translateX(100%);
+}
+
+input:checked ~ input:checked ~ input {
+    transform: translateX(200%);
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+@media screen and (max-width: 768px) {
+    .content {
+      padding: 10px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    header {
+      padding: 0.5rem;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
